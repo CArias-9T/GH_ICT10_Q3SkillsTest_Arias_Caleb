@@ -9,13 +9,14 @@ def account_verify(e):
 
     password = document.getElementById('input2').value
 
+    # one nested if statement
 
-    if len(password) >= 10 and len(username) >= 7:
-        if not password.isalpha():
-            if password.isdigit():
+    if len(password) >= 10 and len(username) >= 7: # primary check, if the username's length is 7 or more and if the password's length is 10 or more
+        if not password.isalpha(): # secondary check for the password, checks if it contains solely letters
+            if password.isdigit(): # final check for the password, checks if it contains solely numbers
                 display(f"Your username is eligible. Your password must contain both letters and numbers. Please add letters.", target="output")
     
-            else:
+            else: # if the second and third check are false, sign in
                 display(f"You are signed up, {username}! Welcome!", target="output")
 
         elif password.isalpha():
